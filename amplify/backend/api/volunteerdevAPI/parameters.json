@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "volunteerdevAPI",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authvolunteerdevd3aafcde",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

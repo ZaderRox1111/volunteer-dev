@@ -1,0 +1,9 @@
+type Request @model {
+  id: ID!
+  title: String!
+  description: String!
+  for: String!
+  tags: [String]
+  email: String!
+  owner: String!
+}
