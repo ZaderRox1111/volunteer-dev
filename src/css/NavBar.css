@@ -1,0 +1,28 @@
+.navbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  top: 0;
+  height: 65px;
+  width: 100%;
+  transition-timing-function: ease-in;
+  transition: 0.5s;
+}
+
+.nav_back {
+  background-color: #FAF9F6;
+  box-shadow: #000 0 0 10px 0px;
+}
+
+.title {
+  color: #FAF9F6;
+  transition-timing-function: ease-in;
+  transition: 0.5s;
+  margin-left: 20px;
+}
+
+.title_back {
+  color: #000;
+  margin-left: 30px;
+}

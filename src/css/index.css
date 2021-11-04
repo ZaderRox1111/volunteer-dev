@@ -21,3 +21,24 @@ code {
   --amplify-primary-shade: 	#c5285d;
   --amplify-background-color: #fff;
 }
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #5b7283;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #374958;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #26333d;
+}
