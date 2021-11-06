@@ -6,6 +6,7 @@ import { makeStyles } from '@mui/styles';
 
 import Post from '../components/Post.js';
 import NavBar from '../components/NavBar.js';
+import Choice from '../components/Choice.js';
 import topPic from '../img/Main_Preview.jpeg';
 
 const useStyles = makeStyles(theme => ({
@@ -45,14 +46,10 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Courgette, cursive',
     fontSize: '24pt',
   },
-
-  choice: {
-    position: 'relative',
-  },
 }))
 
 function Home() {
-  const { all, first, toppic, title, maintitle, subtitle, choice } = useStyles();
+  const { all, first, toppic, title, maintitle, subtitle } = useStyles();
 
   const [requests, setRequests] = useState([]);
 
@@ -85,9 +82,8 @@ function Home() {
         </div>
       </div>
 
-      <div className={choice}>
-        <h1>Home</h1>
-        <AmplifySignOut />
+      <div>
+        <Choice />
       </div>
 
       <div>

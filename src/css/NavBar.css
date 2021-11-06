@@ -2,6 +2,7 @@
   position: fixed;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 10;
   top: 0;
   height: 65px;
@@ -17,6 +18,7 @@
 
 .title {
   color: #FAF9F6;
+  font-family: 'Courgette', cursive;
   transition-timing-function: ease-in;
   transition: 0.5s;
   margin-left: 20px;
@@ -25,4 +27,25 @@
 .title_back {
   color: #000;
   margin-left: 30px;
+}
+
+.right {
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FAF9F6;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  transition-timing-function: ease-in;
+  transition: 0.5s;
+  margin-right: 20px;
+}
+
+.right_back {
+  color: #000;
+  margin-right: 30px;
+}
+
+.signout {
+  height: 45px;
 }

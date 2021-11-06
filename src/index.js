@@ -4,11 +4,28 @@ import './css/index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#e91e63',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+  },
+  typography: { 
+    useNextVariants: true
+  }
+});
 
 ReactDOM.render(
-  (<BrowserRouter>
-    <App /> {/* The various pages will be displayed by the `Main` component. */}
-  </BrowserRouter>),
+  <ThemeProvider theme = { theme }>
+    <BrowserRouter>
+      <App /> {/* The various pages will be displayed by the `Main` component. */}
+    </BrowserRouter>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
