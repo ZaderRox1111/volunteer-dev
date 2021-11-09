@@ -1,10 +1,7 @@
-import { AmplifySignOut } from '@aws-amplify/ui-react';
-import { API, graphqlOperation } from 'aws-amplify';
-import React, { useEffect, useState } from 'react';
-import { listRequests } from '../graphql/queries.js';
+import React from 'react';
 import { makeStyles } from '@mui/styles';
 
-import Post from '../components/Post.js';
+import Posts from '../components/Posts.js';
 import NavBar from '../components/NavBar.js';
 import Choice from '../components/Choice.js';
 import topPic from '../img/Main_Preview.jpeg';
@@ -51,25 +48,6 @@ const useStyles = makeStyles(theme => ({
 function Home() {
   const { all, first, toppic, title, maintitle, subtitle } = useStyles();
 
-  const [requests, setRequests] = useState([]);
-
-  useEffect(() => {
-    fetchRequests();
-  }, []);
-
-  const fetchRequests = async () => {
-    try {
-      const requestsData = await API.graphql(graphqlOperation(listRequests));
-      const requestsList = requestsData.data.listRequests.items;
-
-      console.log('Requests list:', requestsList);
-      setRequests(requestsList);
-
-    } catch (error) {
-      console.error('Error fetching requests list. ', error);
-    }
-  }
-
   return (
     <body className={all}>
       <NavBar />
@@ -87,11 +65,7 @@ function Home() {
       </div>
 
       <div>
-        {requests.map(request => {
-          return <Post
-            title={request.title}
-          />
-        })}
+        <Posts />
       </div>
     </body>
   )

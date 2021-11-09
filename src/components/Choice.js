@@ -1,10 +1,8 @@
 import '../css/choice.css';
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 
 function Choice() {
-  const [show, setShow] = useState(false);
-  
   return (
     <div className='all'>
       <div className='leftChoice'>
