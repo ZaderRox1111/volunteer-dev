@@ -4,14 +4,17 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(theme => ({
   post: {
-    backgroundColor: 'red',
+    backgroundColor: '#faf6f9',
     border: '#000 solid 2px',
     borderRadius: '5px',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto, Arial',
   },
 
   posttitle: {
     textAlign: 'center',
+    backgroundColor: 'red',
+    fontSize: '24pt',
+    padding: '10px',
     color: '#faf6f9',
   },
 
@@ -29,7 +32,7 @@ const Post = ({
 
   return (
     <div className={post}>
-      <h1 className={posttitle}>{title}</h1>
+      <div className={posttitle}>{title}</div>
       <div className={postmain}>
         Main
       </div>

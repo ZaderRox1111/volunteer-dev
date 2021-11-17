@@ -2,7 +2,7 @@ import '../css/Posts.css';
 import { API, graphqlOperation } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
 import { listRequests } from '../graphql/queries.js';
-import Masonry from '@mui/lab/Masonry';
+import Masonry from 'react-masonry-css';
 
 import Post from '../components/Post.js';
 
@@ -28,8 +28,9 @@ function Posts() {
 
   const breakpoints = {
     default: 4,
-    1100: 3,
-    750: 2
+    1200: 3,
+    900: 2,
+    600: 1
   }
 
   return (
