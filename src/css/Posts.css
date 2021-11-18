@@ -54,6 +54,7 @@
   grid-area: main;
   border-radius: var(--main-radius);
   padding: var(--main-padding);
+  overflow-y: auto;
 }
 
 @media only screen and (max-width: 750px) {

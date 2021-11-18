@@ -1,0 +1,27 @@
+.tagsdiv {
+  padding: 15px 0;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* scrollbar */
+/* width */
+.tagsdiv::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+.tagsdiv::-webkit-scrollbar-track {
+  background: #eeeaed;
+}
+
+/* Handle */
+.tagsdiv::-webkit-scrollbar-thumb {
+  background: #cecacd;
+}
+
+/* Handle on hover */
+.tagsdiv::-webkit-scrollbar-thumb:hover {
+  background: #9c989b;
+}

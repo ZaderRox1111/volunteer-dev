@@ -32,6 +32,34 @@ function Posts() {
     1200: 2,
     600: 1
   }
+  
+  const getRandomColor = colorsArr => {
+    let color = [];
+
+    for (let index = 0; index < requests.length; index++) {
+      color[index] = colorsArr[Math.floor(Math.random() * colorsArr.length)];
+    }
+
+    return color;
+  }
+
+  const colors = [
+    "#ef5350",
+    "#e91e63",
+    "#ab47bc",
+    "#7e57c2",
+    "#1e88e5",
+    "#4fc3f7",
+    "#26c6da",
+    "#009688",
+    "#4caf50",
+    "#8bc34a",
+    "#ffb300",
+    "#ff9800",
+    "#ff7043",
+  ]
+
+  const color = getRandomColor(colors);
 
   return (
     <div className='allposts'>
@@ -43,19 +71,21 @@ function Posts() {
             className='my-masonry-grid'
             columnClassName='my-masonry-grid_column'
           >
-            {requests.map(request => {
+            {requests.map((request, index) => {
               return <Post
+                id={request.id}
                 title={request.title}
                 tags={request.tags}
                 description={request.description}
+                color={color[index]}
                 key={request.id}
               />
             })}
 
-            <Post title="Request" description='Description' tags={[]} />
-            <Post title="Really Long Title Cuz Why Not" description='Description' tags={['tag', 'tag 2']} />
-            <Post title="Request" description='Description' tags={[]} />
-            <Post title="Request" description='Description' tags={['React', 'Node', 'Humply Dumply', 'Long Tags Woooo']} />
+            <Post title="Request" description='Description' tags={[]} color={colors[0]} id='' />
+            <Post title="Really Long Title Cuz Why Not" description='Description' tags={['tag', 'tag 2']} color={colors[4]} id='' />
+            <Post title="Request" description='Description' tags={[]} color={colors[6]} id='' />
+            <Post title="Request" description='Description' tags={['React', 'Node', 'Humply Dumply', 'Long Tags Woooo']} color={colors[7]} id='' />
           </Masonry>
         </main>
         <div id='sidebar'>Sidebar</div>

@@ -1,7 +1,9 @@
 import '../css/Post.css';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
+
+import PostModal from '../components/PostModal.js';
 
 const useStyles = makeStyles(theme => ({
   post: {
@@ -9,6 +11,11 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '5px',
     fontFamily: 'Roboto, Arial',
     boxShadow: '#bbb 1px 1px 5px 1px',
+    position: 'relative',
+    overflow: 'hidden',
+    transition: 'background 400ms',
+    cursor: 'pointer',
+    zIndex: '1',
   },
 
   posttitle: {
@@ -22,8 +29,12 @@ const useStyles = makeStyles(theme => ({
 
   postmain: {
     backgroundColor: '#faf6f9',
-    padding: '10px',
-    borderRadius: '0 0 5px 5px',
+    margin: '5px',
+    padding: '0 10px',
+    border: 'solid #bbb 1px',
+    borderRadius: '5px',
+    maxHeight: '500px',
+    overflowY: 'hidden',
   },
 
   tagspan: {
@@ -36,66 +47,67 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Post = ({
+  id,
   title,
   description,
   tags,
+  color,
 }) => {
   const { post, posttitle, postmain, tagspan } = useStyles();
 
-  const getRandomColor = colorsArr => {
-    return colorsArr[Math.floor(Math.random() * colorsArr.length)];
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
   }
 
-  const colors = [
-    "#ef5350",
-    "#e91e63",
-    "#ab47bc",
-    "#7e57c2",
-    "#1e88e5",
-    "#4fc3f7",
-    "#26c6da",
-    "#009688",
-    "#4caf50",
-    "#8bc34a",
-    "#ffb300",
-    "#ff9800",
-    "#ff7043",
-  ]
-
-  const color = getRandomColor(colors);
-
   return (
-    <div className={post}>
-      <div
-        className={posttitle}
-        style = {{ color: color }}
-      >
-        {title}
+    <div>
+      <div className={post} onClick={handleOpen} id={id}>
+        <div
+          className={posttitle}
+          style = {{ color: color }}
+        >
+          {title}
+        </div>
+
+        <div className='tagsdiv'>
+          {tags.map(tag => {
+              return <span
+                className={tagspan}
+                key={tag}
+                style={{ border: `1px solid ${color}` }}
+              >
+                {tag}
+              </span>
+          })}
+        </div>
+
+        <div className={postmain}>
+          {description.split('\n').map(line => {
+            return <p>{line}</p>
+          })}
+        </div>
       </div>
 
-      <div className='tagsdiv'>
-        {tags.map(tag => {
-            return <span
-              className={tagspan}
-              key={tag}
-              style={{ border: `1px solid ${color}` }}
-            >
-              {tag}
-            </span>
-        })}
-      </div>
-
-      <div className={postmain}>
-        {description}
-      </div>
+      <PostModal
+        open={open}
+        setOpen={setOpen}
+        title={title}
+        tags={tags}
+        description={description}
+        color={color}
+      />
     </div>
   )
 }
 
 Post.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
   description: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 export default Post;
