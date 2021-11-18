@@ -28,14 +28,14 @@ function Posts() {
 
   const breakpoints = {
     default: 4,
-    1200: 3,
-    900: 2,
+    1536: 3,
+    1200: 2,
     600: 1
   }
 
   return (
     <div className='allposts'>
-      <div class='container'>
+      <div className='container'>
         <div id='header'>Search for posts here!</div>
         <main id='main'>
           <Masonry
@@ -46,8 +46,16 @@ function Posts() {
             {requests.map(request => {
               return <Post
                 title={request.title}
+                tags={request.tags}
+                description={request.description}
+                key={request.id}
               />
             })}
+
+            <Post title="Request" description='Description' tags={[]} />
+            <Post title="Really Long Title Cuz Why Not" description='Description' tags={['tag', 'tag 2']} />
+            <Post title="Request" description='Description' tags={[]} />
+            <Post title="Request" description='Description' tags={['React', 'Node', 'Humply Dumply', 'Long Tags Woooo']} />
           </Masonry>
         </main>
         <div id='sidebar'>Sidebar</div>

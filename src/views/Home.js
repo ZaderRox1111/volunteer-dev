@@ -49,7 +49,7 @@ function Home() {
   const { all, first, toppic, title, maintitle, subtitle } = useStyles();
 
   return (
-    <body className={all}>
+    <div className={all}>
       <NavBar />
 
       <div className={first}>
@@ -67,7 +67,7 @@ function Home() {
       <div>
         <Posts />
       </div>
-    </body>
+    </div>
   )
 }
 
