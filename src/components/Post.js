@@ -84,9 +84,11 @@ const Post = ({
         </div>
 
         <div className={postmain}>
-          {description.split('\n').map(line => {
-            return <p>{line}</p>
-          })}
+          <div className='postmaininside'>
+            {description.split('\n').map(line => {
+              return <p>{line}</p>
+            })}
+          </div>
         </div>
       </div>
 

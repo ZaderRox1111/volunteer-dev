@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '60vw',
+    width: '70vw',
     bgcolor: 'background.paper',
     border: '1px solid black',
     borderRadius: '10px',
@@ -34,13 +34,17 @@ const useStyles = makeStyles(theme => ({
 
   postmain: {
     backgroundColor: '#faf6f9',
-    padding: '15px',
-    borderRadius: '0 0 10px 10px',
+    margin: '5px 25px 25px',
+    maxHeight: '70vh',
+    padding: '0 10px',
+    border: 'solid #bbb 1px',
+    borderRadius: '5px',
+    overflowY: 'auto',
   },
 
   tagspan: {
     padding: '5px 10px',
-    margin: '10px',
+    margin: '5px',
     backgroundColor: '#faf6f9',
     borderRadius: '15px',
     boxShadow: '#bbb 2px 2px 5px 0',
@@ -81,7 +85,7 @@ const PostModal = ({
               {title}
             </div>
 
-            <div className='tagsdiv'>
+            <div className='tagsdivmodal'>
               {tags.map(tag => {
                   return <span
                     className={tagspan}
@@ -94,7 +98,11 @@ const PostModal = ({
             </div>
 
             <div className={postmain}>
-              {description}
+              <div>
+                {description.split('\n').map(line => {
+                  return <p>{line}</p>
+                })}
+              </div>
             </div>
           </div>
         </Fade>

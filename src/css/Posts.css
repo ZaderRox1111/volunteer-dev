@@ -19,7 +19,7 @@
   height: 800px;
   width: 90%;
   background-color: #31302e;
-  box-shadow: #e91e63 0 0 25px;
+  box-shadow: #e91e63 0 0 20px;
   padding: 10px;
   border-radius: 10px;
   grid-template-columns: 1fr 5fr;

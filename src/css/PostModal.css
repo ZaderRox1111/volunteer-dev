@@ -1,5 +1,6 @@
-.tagsdiv {
+.tagsdivmodal {
   padding: 15px 0;
+  margin: 20px;
   width: 100%;
   overflow-x: auto;
   white-space: nowrap;

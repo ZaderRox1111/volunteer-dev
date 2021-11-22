@@ -5,6 +5,12 @@
   white-space: nowrap;
 }
 
+.postmaininside {
+  -webkit-mask-image: linear-gradient(black 50%, transparent);
+  mask-image: linear-gradient(black 50%, transparent);
+  max-height: 500px;
+}
+
 /* scrollbar */
 /* width */
 .tagsdiv::-webkit-scrollbar {
